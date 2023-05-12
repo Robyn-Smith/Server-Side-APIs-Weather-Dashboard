@@ -31,8 +31,30 @@
                   <img src="assets/images/cloudy.png" alt=""> <!--need to get icon-->
                 </div>
                 <div class="weather-info">
-                    <div class="temperature"></div>
+                    <div class="temperature">
+                        <span>Temperature:</span>
+                        <span id="temp_value">-</span>
+                    </div>
+                    <div class="wind">
+                        <span>Wind:</span>
+                        <span id="wind_value">-</span> <!--change order? add pollen count?-->
+                    </div>
+                    <div class="humidity">
+                        <span>Humidity:</span>
+                        <span id="humid_value">-</span>
+                    </div>
+                    <div class="uv-index">
+                        <span>UV Index:</span>
+                        <span id="uvi_value">-</span>
+                    </div>
+                </div>
+            </div>
+            <div id="forecast">
+                <h1>5-Day Forecast</h1> <!--change to h2-->
+                <div id="forecast-days"></div>
+            </div>
         </section>
     </main>
 </body>
+<script src="assets/script.js"></script>
 </html>
