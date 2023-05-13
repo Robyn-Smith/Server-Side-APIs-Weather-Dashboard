@@ -120,6 +120,7 @@ const displayWeatherForecast = (weatherData) => {
         const dailyForecast = dailyData[i];
         const day = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
         //jsn's asterix is in the middle not high check working n right symbol?
+        //could use momentum js or day js instead
         const temp = `${dailyForecast.temp.day}°`;
         //check degree sign possibly change to &deg
         const humidity = `${dailyForecast.humidity}%`;
@@ -143,12 +144,49 @@ const displayWeatherForecast = (weatherData) => {
                 </div>
             </div>`;
         forecastList.appendChild(newForecast);
-        //this section can remove and add into index html 5 times
+        //this section can remove and add into index html 5 times - you can get element by id forecasts day then grab it at the dom
     }
 }
 
 const getWeather = (lat, lon) => {
 
-    //
+    //get the weather for the cached location
+    //repeat from earlier???
+               // Get the Weather for the cached location - jsn
+            //var apiUrl = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
+        var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
+            console.log(apiUrl);
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+
+                    console.log(data);
+
+                    //show the current weather forecast- old jsn
+                    displayCurrentWeather(data);
+
+                    //show the 5 day weather forecast - jsn - change forecast to report?
+                    displayWeatherForecast(data);
+
+                    //pick the first location -new jsn
+
+                    // Display the Current Weather - new jsn
+
+                    // Display the 5 Day Forecast - new jsn
+                });
+        }
+
+// Add an event handler for the search button - new jsn
+
+//display the weather for the cached location
+const displayWeather = (weatherData) => {
+    document.getElementById('location-name').textContent = `${weatherData.name}, ${weatherData.country}`;
+
+    getWeather(weatherData.lat,weatherData.lon);
 }
-// Add an event handler for the search button
+
+//search text and search button
+const locationInput = document.getElementById('location');
+const searchButton = document.getElementById('search');
+
+searchButton.addEventListener('click', getLocation);
