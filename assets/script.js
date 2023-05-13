@@ -115,7 +115,7 @@ const displayWeatherForecast = (weatherData) => {
 
 
 //day 1 of 5 forecast days
-const dailyForecast = dailyData[1];
+var dailyForecast = dailyData[1];
 //check if array starts from 0 being current day
 const day1 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
 console.log(day1);
@@ -126,6 +126,21 @@ document.getElementById('day1temp_value').textContent = `${dailyForecast.temp.da
 document.getElementById('day1wind_value').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day1humid_value').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day1uvi_value').textContent = `${dailyForecast.uvi}`;
+
+
+//day 2 of 5 forecast days
+var dailyForecast = dailyData[2];
+//check if array starts from 0 being current day
+const day2 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
+console.log(day2);
+
+$('#day2day_value').text(day2);  
+document.getElementById('day2temp_value').textContent = `${dailyForecast.temp.day}°`;
+//&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
+document.getElementById('day2wind_value').textContent = `${dailyForecast.wind_speed}MPH`;
+document.getElementById('day2humid_value').textContent = `${dailyForecast.humidity}%`;
+document.getElementById('day2uvi_value').textContent = `${dailyForecast.uvi}`;
+
 }
 
 
