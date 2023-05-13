@@ -30,7 +30,7 @@
             <div id="weather">
                 <div class="weather-icon">
                   <div class="weather-location" id="location-name">Enter a Location</div>
-                  <img src="assets/images/cloudy.png" alt=""> <!--need to get icon-->
+                  <!-- <img src="assets/images/cloudy.png" alt=""> need to get icon -->
                 </div>
                 <div class="weather-info"> <!--could copy these sections 5 times for each day rather than adding dynamically in javascript-->
                     <div class="temperature">
@@ -53,10 +53,39 @@
             </div>
             <div id="forecast">
                 <h1>5-Day Forecast</h1> <!--change to h2-->
-                <div id="forecast-days"></div>
+                <div id="forecast-days">
+                    <div class="day1weather-info"> <!--could copy these sections 5 times for each day rather than adding dynamically in javascript-->
+                        <div class="date">
+                            <span>Day:</span>
+                            <span id="day1day_value">-</span>
+                        </div>
+                        <div class="temperature">
+                            <span>Temperature:</span>
+                            <span id="day1temp_value">-</span>
+                        </div>
+                        <div class="wind">
+                            <span>Wind:</span>
+                            <span id="day1wind_value">-</span> <!--change order? add pollen count?-->
+                        </div>
+                        <div class="humidity">
+                            <span>Humidity:</span>
+                            <span id="day1humid_value">-</span>
+                        </div>
+                        <div class="uv-index">
+                            <span>UV Index:</span>
+                            <span id="day1uvi_value">-</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+  crossorigin="anonymous"
+></script>
 <script src="assets/script.js"></script>
 </html>

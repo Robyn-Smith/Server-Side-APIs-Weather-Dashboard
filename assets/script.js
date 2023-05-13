@@ -1,6 +1,6 @@
 const WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
 const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
-const MAX_DAILY_FORECAST = 5;
+// const MAX_DAILY_FORECAST = 5;
 
 // create an array of searched locations - jsn
 const recentLocations = [];
@@ -107,46 +107,70 @@ const displayWeatherForecast = (weatherData) => {
     const dailyData = weatherData.daily;
 
     //show the forcast section - jsn
-    document.getElementById('forecast').style.display = 'block';
+    // document.getElementById('forecast').style.display = 'block';
 
     //clear any current forecasts - jsn
-    const forecastList = document.getElementById('forecast-days');
-    forecastList.innerHTML = '';
+    // const forecastList = document.getElementById('forecast-days');
+    // forecastList.innerHTML = '';
+
+
+//day 1 of 5 forecast days
+const dailyForecast = dailyData[1];
+//check if array starts from 0 being current day
+// const day1 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
+// console.log(day1);
+
+// var day1 = dayjs().format('dddd, D MMMM YYYY');
+// $('#currentDay').text(day1);  
+// document.getElementsById('day1day_value').textContent = `${dailyForecast.day1}`;
+//issuesssss.......................cant get day of the week to appear............................................
+document.getElementById('day1temp_value').textContent = `${dailyForecast.temp.day}°`;
+//&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
+document.getElementById('day1wind_value').textContent = `${dailyForecast.wind_speed}MPH`;
+document.getElementById('day1humid_value').textContent = `${dailyForecast.humidity}%`;
+//check symbol % looks different on jsn's
+document.getElementById('day1uvi_value').textContent = `${dailyForecast.uvi}`;
+}
+
 
     //add the new forecasts so they are displayed - jsn
-    for (let i=0; i < MAX_DAILY_FORECAST; i++) {
+    // for (let i=0; i < MAX_DAILY_FORECAST; i++) {
         //change let to var? change max daily forecast to 5 n delete previous var for it?
 
-        const dailyForecast = dailyData[i];
-        const day = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
-        //jsn's asterix is in the middle not high check working n right symbol?
-        //could use momentum js or day js instead
-        const temp = `${dailyForecast.temp.day}°`;
-        //check degree sign possibly change to &deg
-        const humidity = `${dailyForecast.humidity}%`;
-        //check symbol jsn looks different
-        const wind = `${dailyForecast.wind_speed}MPH`;
+        // console.log('for');
 
-        const newForecast = document.createElement('div');
-        newForecast.classList.add('forecast-day');
-        newForecast.innterHTML = `<div class="weather-info">
-                <div class="date">
-                    <span>${day}</span>
-                </div>
-                <div class="temperature">
-                    <span>${temp}</span>
-                </div>
-                <div class="wind">
-                    <span>${wind}</span>
-                </div>
-                <div class="humidity">
-                    <span>${humidity}</span>
-                </div>
-            </div>`;
-        forecastList.appendChild(newForecast);
+        // const dailyForecast = dailyData[i];
+        // const day = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
+
+        // console.log(day);
+        //jsn's asterix is in the middle not high check working n right symbol?✱✲
+        //could use momentum js or day js instead
+        // const temp = `${dailyForecast.temp.day}°`;
+        //check degree sign possibly change to &deg
+        // const humidity = `${dailyForecast.humidity}%`;
+        //check symbol jsn looks different
+        // const wind = `${dailyForecast.wind_speed}MPH`;
+
+        // const newForecast = document.createElement('div');
+        // newForecast.classList.add('forecast-day');
+        // newForecast.innterHTML = `<div class="weather-info">
+        //         <div class="date">
+        //             <span>${day}</span>
+        //         </div>
+        //         <div class="temperature">
+        //             <span>${temp}</span>
+        //         </div>
+        //         <div class="wind">
+        //             <span>${wind}</span>
+        //         </div>
+        //         <div class="humidity">
+        //             <span>${humidity}</span>
+        //         </div>
+        //     </div>`;
+        // forecastList.appendChild(newForecast);
         //this section can remove and add into index html 5 times - you can get element by id forecasts day then grab it at the dom
-    }
-}
+    // }
+// }//issue with this section?..........................................................................
 
 const getWeather = (lat, lon) => {
 
@@ -178,15 +202,19 @@ const getWeather = (lat, lon) => {
 
 // Add an event handler for the search button - new jsn
 
-//display the weather for the cached location
+//display the weather for the cached location- jsn
 const displayWeather = (weatherData) => {
     document.getElementById('location-name').textContent = `${weatherData.name}, ${weatherData.country}`;
 
     getWeather(weatherData.lat,weatherData.lon);
 }
 
-//search text and search button
+//search text and search button - jsn
 const locationInput = document.getElementById('location');
 const searchButton = document.getElementById('search');
 
 searchButton.addEventListener('click', getLocation);
+
+//need to add local storage to remember recent searches
+
+// need to add icons
