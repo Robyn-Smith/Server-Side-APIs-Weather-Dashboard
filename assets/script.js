@@ -39,6 +39,8 @@ const setLocationError = (text) => {
 const lookupLocation = (search) => {
 
     // Lookup the location to get the Lat/Lon - jsn
+    //var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
+    // var apiUrl = WEATHER_API_BASE_URL + "/geo/1.0/direct?q=" + search + "&limit=5&appid=" + WEATHER_API_KEY;
     var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
     fetch(apiUrl)
         .then(response => response.json())
@@ -51,9 +53,16 @@ const lookupLocation = (search) => {
             var lat = data[0].lat;
             var lon = data[0].lon;
 
-            // Get the Weather for the cached location
-            //var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
-            var 
+            const myData = {
+                name: data[0].name,
+                country: data[0].country,
+                lat: data[0].lat,
+                lon: data[0].lon
+            }
+
+            console.log(myData);
+
+            // Get the Weather for the cached location - jsn
             //var apiUrl = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
             var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
             console.log(apiUrl);
@@ -63,12 +72,83 @@ const lookupLocation = (search) => {
 
                     console.log(data);
 
-                    // Display the Current Weather
+                    //show the current weather forecast- old jsn
+                    displayCurrentWeather(data);
 
-                    // Display the 5 Day Forecast
+                    //show the 5 day weather forecast - jsn - change forecast to report?
+                    displayWeatherForecast(data);
+
+                    //pick the first location -new jsn
+
+                    // Display the Current Weather - new jsn
+
+                    // Display the 5 Day Forecast - new jsn
                 });
+            //display the weather- jsn
+            displayWeather(myData);
         });
 }
 
+const displayCurrentWeather = (weatherData) => {
+    const currentWeather = weatherData.current;
 
+    //display the current weather at the top of the dashboard - jsn
+    document.getElementById('temp_value').textContent = `${currentWeather.temp}°`;
+    //&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
+    document.getElementById('wind_value').textContent = `${currentWeather.wind_speed}MPH`;
+    document.getElementById('humid_value').textContent = `${currentWeather.humidity}%`;
+    //check symbol % looks different on jsn's
+    document.getElementById('uvi_value').textContent = `${currentWeather.uvi}`;
+}
+
+const displayWeatherForecast = (weatherData) => {
+
+    //get the daily forecasts- jsn
+    const dailyData = weatherData.daily;
+
+    //show the forcast section - jsn
+    document.getElementById('forecast').style.display = 'block';
+
+    //clear any current forecasts - jsn
+    const forecastList = document.getElementById('forecast-days');
+    forecastList.innerHTML = '';
+
+    //add the new forecasts so they are displayed - jsn
+    for (let i=0; i < MAX_DAILY_FORECAST; i++) {
+        //change let to var? change max daily forecast to 5 n delete previous var for it?
+
+        const dailyForecast = dailyData[i];
+        const day = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
+        //jsn's asterix is in the middle not high check working n right symbol?
+        const temp = `${dailyForecast.temp.day}°`;
+        //check degree sign possibly change to &deg
+        const humidity = `${dailyForecast.humidity}%`;
+        //check symbol jsn looks different
+        const wind = `${dailyForecast.wind_speed}MPH`;
+
+        const newForecast = document.createElement('div');
+        newForecast.classList.add('forecast-day');
+        newForecast.innterHTML = `<div class="weather-info">
+                <div class="date">
+                    <span>${day}</span>
+                </div>
+                <div class="temperature">
+                    <span>${temp}</span>
+                </div>
+                <div class="wind">
+                    <span>${wind}</span>
+                </div>
+                <div class="humidity">
+                    <span>${humidity}</span>
+                </div>
+            </div>`;
+        forecastList.appendChild(newForecast);
+        //this section can remove and add into index html 5 times
+    }
+}
+
+const getWeather = (lat, lon) => {
+
+    //
+}
 // Add an event handler for the search button
