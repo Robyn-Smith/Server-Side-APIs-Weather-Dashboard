@@ -117,18 +117,14 @@ const displayWeatherForecast = (weatherData) => {
 //day 1 of 5 forecast days
 const dailyForecast = dailyData[1];
 //check if array starts from 0 being current day
-// const day1 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
-// console.log(day1);
+const day1 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
+console.log(day1);
 
-// var day1 = dayjs().format('dddd, D MMMM YYYY');
-// $('#currentDay').text(day1);  
-// document.getElementsById('day1day_value').textContent = `${dailyForecast.day1}`;
-//issuesssss.......................cant get day of the week to appear............................................
+$('#day1day_value').text(day1);  
 document.getElementById('day1temp_value').textContent = `${dailyForecast.temp.day}°`;
 //&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
 document.getElementById('day1wind_value').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day1humid_value').textContent = `${dailyForecast.humidity}%`;
-//check symbol % looks different on jsn's
 document.getElementById('day1uvi_value').textContent = `${dailyForecast.uvi}`;
 }
 
