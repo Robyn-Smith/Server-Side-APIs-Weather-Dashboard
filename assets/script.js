@@ -62,7 +62,7 @@ const lookupLocation = (search) => {
 
             // Get the Weather for the cached location - jsn
             var apiUrl = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
-            // var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
+           
             console.log(apiUrl);
             fetch(apiUrl)
                 .then(response => response.json())
@@ -173,7 +173,7 @@ var dailyForecast = dailyData[5];
 //check if array starts from 0 being current day
 const day5 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
 console.log(day5);
-
+//could use momentum js or day js instead
 $('#day5day_value').text(day5);  
 document.getElementById('day5temp_value').textContent = `${dailyForecast.temp.day}°`;
 //&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
@@ -183,52 +183,13 @@ document.getElementById('day5uvi_value').textContent = `${dailyForecast.uvi}`;
 }
 
 
-    //add the new forecasts so they are displayed - jsn
-    // for (let i=0; i < MAX_DAILY_FORECAST; i++) {
-        //change let to var? change max daily forecast to 5 n delete previous var for it?
-
-        // console.log('for');
-
-        // const dailyForecast = dailyData[i];
-        // const day = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
-
-        // console.log(day);
-        //jsn's asterix is in the middle not high check working n right symbol?✱✲
-        //could use momentum js or day js instead
-        // const temp = `${dailyForecast.temp.day}°`;
-        //check degree sign possibly change to &deg
-        // const humidity = `${dailyForecast.humidity}%`;
-        //check symbol jsn looks different
-        // const wind = `${dailyForecast.wind_speed}MPH`;
-
-        // const newForecast = document.createElement('div');
-        // newForecast.classList.add('forecast-day');
-        // newForecast.innterHTML = `<div class="weather-info">
-        //         <div class="date">
-        //             <span>${day}</span>
-        //         </div>
-        //         <div class="temperature">
-        //             <span>${temp}</span>
-        //         </div>
-        //         <div class="wind">
-        //             <span>${wind}</span>
-        //         </div>
-        //         <div class="humidity">
-        //             <span>${humidity}</span>
-        //         </div>
-        //     </div>`;
-        // forecastList.appendChild(newForecast);
-        //this section can remove and add into index html 5 times - you can get element by id forecasts day then grab it at the dom
-    // }
-// }//issue with this section?..........................................................................
-
 const getWeather = (lat, lon) => {
 
     //get the weather for the cached location
     //repeat from earlier???
         // Get the Weather for the cached location - jsn
         var apiUrl = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
-        // var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
+        
             console.log(apiUrl);
             fetch(apiUrl)
                 .then(response => response.json())
