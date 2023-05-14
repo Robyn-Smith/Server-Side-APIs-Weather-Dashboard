@@ -227,6 +227,38 @@ var searchBtn = document.getElementById('search');
 
 searchBtn.addEventListener('click', onSearch);
 
-//need to add local storage to remember recent searches
+//need to add local storage to remember recent searches........................................................
 
-// need to add icons
+//// create an array of searched locations - jsn - plucked from top of this js code
+// var locationHistory = [];
+
+
+//work day schedulor local storage:
+//var savedToDo = localStorage.getItem(hour) || '';  
+//localStorage.setItem(hour, toDo);
+
+//quiz local storage:
+//function onSaveScore(event) {
+//     var player = document.getElementById("player").value
+//     if (player !== "") {
+//       localStorage.setItem(player, score);
+//       document.getElementById("player").value = "";
+//   }
+// }
+//localStorage.setItem("player", JSON.stringify(score));
+// var highscores = document.getElementById("highscores")
+// for (var i = 0; i < localStorage.length; i++) {
+
+//     var player = localStorage.key(i);
+//     var score = localStorage.getItem(player);
+    
+//         var list = document.createElement("li");
+//         list.classList.add("list");
+    
+//         list.innerHTML = `<li id="score-item" class = "player">${player}</li><li id="score-item" class = "score">${score}</li>`
+//         highscores.appendChild(list);
+//     }
+
+
+// need to add icons.............................................................................................
+
