@@ -223,9 +223,9 @@ var displayWeather = (weatherData) => {
 
 //search text and search button - jsn
 var locationInput = document.getElementById('location');
-var searchButton = document.getElementById('search');
+var searchBtn = document.getElementById('search');
 
-searchButton.addEventListener('click', onSearch);
+searchBtn.addEventListener('click', onSearch);
 
 //need to add local storage to remember recent searches
 
