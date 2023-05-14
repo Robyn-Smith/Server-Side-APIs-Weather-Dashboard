@@ -154,6 +154,20 @@ document.getElementById('day3temp_value').textContent = `${dailyForecast.temp.da
 document.getElementById('day3wind_value').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day3humid_value').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day3uvi_value').textContent = `${dailyForecast.uvi}`;
+
+
+//day 4 of 5 forecast days
+var dailyForecast = dailyData[4];
+//check if array starts from 0 being current day
+const day4 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
+console.log(day4);
+
+$('#day4day_value').text(day4);  
+document.getElementById('day4temp_value').textContent = `${dailyForecast.temp.day}°`;
+//&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
+document.getElementById('day4wind_value').textContent = `${dailyForecast.wind_speed}MPH`;
+document.getElementById('day4humid_value').textContent = `${dailyForecast.humidity}%`;
+document.getElementById('day4uvi_value').textContent = `${dailyForecast.uvi}`;
 }
 
 
