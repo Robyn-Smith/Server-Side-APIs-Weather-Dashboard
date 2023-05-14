@@ -2,40 +2,41 @@ const WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
 const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
 
 // create an array of searched locations - jsn
-const recentLocations = [];
+const locationHistory = [];
 //could change to var?
 
 const onSearch = () => {
 //could chand to onSearch
 
     //get the location entered by user - jsn
-    const userLocation = locationInput.value;
+    const enteredLocation = locationInput.value;
 
     //verify its valid, if it is, look up location -jsn
-    if (userLocation === '') {
-        setLocationwarning('Please enter a location');
+    //if nothing is entered display warning message - check if anything entered
+    if (enteredLocation === '') {
+        displayWarning('Please enter a location');
     } else {
-        lookupLocation(userLocation);
+        locationSearch(enteredLocation);
     }
 }
 
 // Clear the last warning on the page -jsn
-const clearwarning = () => {
+const removeWarning = () => {
     const warningDisplay = document.getElementById('warning');
     warningDisplay.textContent = '';
-}//change warning to warning
+}//changed to warning 
 
 //Display an warning - jsn
-const setLocationwarning = (text) => {
+const displayWarning = (text) => {
     const warningDisplay = document.getElementById('warning');
     warningDisplay.textContent = text;
 
     //set a timer to clear it after 3 seconds - jsn
-    setTimeout(clearwarning, 2000);
+    setTimeout(removeWarning, 2000);
 } //changed to 2 seconds
 //it shows warning then hides it
 
-const lookupLocation = (search) => {
+const locationSearch = (search) => {
 
     // Lookup the location to get the Lat/Lon - jsn
     var apiUrl = WEATHER_API_BASE_URL + "/geo/1.0/direct?q=" + search + "&limit=5&appid=" + WEATHER_API_KEY;
