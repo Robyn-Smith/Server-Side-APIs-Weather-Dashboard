@@ -5,7 +5,7 @@ const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
 const recentLocations = [];
 //could change to var?
 
-const getLocation = () => {
+const onSearch = () => {
 //could chand to onSearch
 
     //get the location entered by user - jsn
@@ -224,7 +224,7 @@ const displayWeather = (weatherData) => {
 const locationInput = document.getElementById('location');
 const searchButton = document.getElementById('search');
 
-searchButton.addEventListener('click', getLocation);
+searchButton.addEventListener('click', onSearch);
 
 //need to add local storage to remember recent searches
 
