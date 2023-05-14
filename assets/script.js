@@ -32,16 +32,18 @@ const setLocationError = (text) => {
     errorDisplay.textContent = text;
 
     //set a timer to clear it after 3 seconds - jsn
-    setTimeout(clearError, 3000);
-} //change second amount?
+    setTimeout(clearError, 2000);
+} //changed to 2 seconds
 //it shows warning then hides it
 
 const lookupLocation = (search) => {
 
     // Lookup the location to get the Lat/Lon - jsn
     //var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
-    // var apiUrl = WEATHER_API_BASE_URL + "/geo/1.0/direct?q=" + search + "&limit=5&appid=" + WEATHER_API_KEY;
-    var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
+    var apiUrl = WEATHER_API_BASE_URL + "/geo/1.0/direct?q=" + search + "&limit=5&appid=" + WEATHER_API_KEY;
+    //concatinated version mine
+    // var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
+    //jsn version
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
@@ -63,8 +65,8 @@ const lookupLocation = (search) => {
             console.log(myData);
 
             // Get the Weather for the cached location - jsn
-            //var apiUrl = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
-            var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
+            var apiUrl = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
+            // var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
             console.log(apiUrl);
             fetch(apiUrl)
                 .then(response => response.json())
@@ -228,9 +230,9 @@ const getWeather = (lat, lon) => {
 
     //get the weather for the cached location
     //repeat from earlier???
-               // Get the Weather for the cached location - jsn
-            //var apiUrl = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
-        var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
+        // Get the Weather for the cached location - jsn
+        var apiUrl = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
+        // var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
             console.log(apiUrl);
             fetch(apiUrl)
                 .then(response => response.json())
