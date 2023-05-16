@@ -98,6 +98,11 @@ var showCurrentWeather = (weatherData) => {
     document.getElementById('humid_value').textContent = `${currentWeather.humidity}%`;
     //check symbol % looks different on jsn's
     document.getElementById('uvi_value').textContent = `${currentWeather.uvi}`;
+
+    // var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+    // var iconDescription = weather.weather[0].description || weather[0].main;
+
+    // document.getElementsByClassName;('#weather-icon')
 }
 
 var showNext5Days = (weatherData) => {
@@ -262,3 +267,10 @@ searchBtn.addEventListener('click', onSearch);
 
 // need to add icons.............................................................................................
 
+// var date = dayjs().format('M/D/YYYY');
+//   // Store response data from our fetch request in variables
+//   var tempF = weather.main.temp;
+//   var windMph = weather.wind.speed;
+//   var humidity = weather.main.humidity;
+//   var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+//   var iconDescription = weather.weather[0].description || weather[0].main;
