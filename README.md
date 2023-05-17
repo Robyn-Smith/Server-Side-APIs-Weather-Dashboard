@@ -38,3 +38,5 @@ The Weather Dashboard webpage has been created to support traveler's effectively
 The user will also be presented with a 5 day forecast of that location so they are aware of what the next 5 days of weather will be and therefore they can use this information to plan activitys in advance. These 5 days also display the day of the week, current temperature, wind speed, humidity level and ----UV index---- of that location. 
 
 -------------This website also stores recent location searches in the search history with the use of local storage. This allows the user to view their recently searched locations and the ability to click these and view the weather for that location again. This improves the user experience as it allows users to quickly view the weather in places where they are living or visit regularly.--------------
+
+The page is also responsive and adapts to smaller screen sizes so that users can view from different devices.
