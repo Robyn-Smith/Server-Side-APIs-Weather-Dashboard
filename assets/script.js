@@ -100,7 +100,7 @@ var showCurrentWeather = (weatherData) => {
     document.getElementById('uvi_value').textContent = `${currentWeather.uvi}`;
 
     // var iconUrl = `https://openweathermap.org/img/w/${currentWeather.icon}.png`;
-    // var iconDescription = weather.weather[0].description
+    // var iconDescription = currentWeather.description
     // fetch(iconUrl)
     // .then(function (response) {
     //     if (response.status !== 200){
@@ -110,10 +110,15 @@ var showCurrentWeather = (weatherData) => {
     //   })
     //   .then(function(data){
     //     console.log(data);
-    //     imageEl.src = data.icon;
-        // imageEl.alt = data.Title;
+    //     if ('Poster' in data){
+    //          imageEl.src = iconUrl;
+    //          imageEl.alt = data.iconDescription;
+    //          imageEl.style.display = 'block';
+    //   } else {
+    //     imageEl.style.display = 'none';
+    //   }
     // });
-
+//  document.getElementsByClassName;('weather-icon').appendChild(img);
     }
     // var img = document.createElement("img");
     // img.src = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
