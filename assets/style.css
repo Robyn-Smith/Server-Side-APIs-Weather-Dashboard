@@ -4,3 +4,240 @@
     flex-wrap: wrap;
     justify-content: space-around;
 } */
+/* aside { */
+    /* background-color: rgba(0, 179, 255, 0.237);
+    margin: none;
+}
+
+h1 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 111);
+    font-size: 3em;
+}
+
+h2 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 111);  
+}
+
+.day1weather-info { */
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* padding: 4%; */
+    /* position: relative; */
+    /* align-items: flex-start; */
+/* } */
+
+/* .forecast-days {
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: space-between;
+    align-items: flex-start;
+} */
+
+:root {
+    --white: #ffffff;
+    --dark-blue: #10464da2;
+    --turquoise: #8ac9b4c8;
+    --border-radius: 5px;
+  }
+  /*variables have been declared in the root to make it easier to change the 3 main colours of the webpage.
+  The border radius has also been declared as a variable to make it easier to repeat the same style throughout 
+  the page.*/
+  
+  body {
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background-color: var(--turquoise);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /*The body contains styling for the whole webpage including font size throughout, display attributes and background 
+  attributes. Flex direction has been set to columns so that the website is responsive to changes in screen size and 
+  appears as coloumns. Display: flex and justify-content: flex-start also support the page in responding to changes in
+  screen size. Background colour has also been added despite having a background image incase of slow rendering or if 
+  the image is unable to load. Background position, repeat and size centres the background image, stops it from 
+  repeating and makes sure that the size of the picture covers the entire screen.*/
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+   font-weight: bolder;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: var(--white);
+  }
+  /* h1 is bold and has been given a larger font size compared to other headings on the page so that it is clear, 
+  visable and stands out. Margin bottom gives the heading space under the text. Font family is included to ensure 
+  that a similar font will be visable if the font chosen is not available for different browers*/
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    text-decoration: underline;
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+  }
+  /* h2 refers to the 'About me' heading in the aside element. Text decoration has been added to the heading 
+  so that it stands out being underlined. Font family is included to ensure that a similar font will be visable 
+  if the font chosen is not available for different browers*/
+  
+  header {
+    padding: 20px;
+    text-align: center;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+  /*header refers to not only the style of the header element at the top of the page but also the headers 
+  above each project.*/
+
+  
+  main {
+    display: flex;
+  }
+  /*this refers to the style of the main element. Display flex allows aside, article and nested sections to be adjacent 
+  to each other and allowed them to be responsive to screen size changes.*/
+  
+  aside {
+    /* flex: 1; */
+    background-color: #55a8a8dc;
+    /* padding: 20px; */
+    text-align: center;
+    width: fit-content;
+  }
+  
+  .weather-info {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #ffffff42;
+  }
+  
+  .day1weather-info {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+
+  .day2weather-info {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+
+  .day3weather-info {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+  
+  .day4weather-info {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+
+  .day5weather-info {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+
+.weather-location {
+  font-size: 2em;  
+}
+
+  button {
+    color: var(--dark-blue);
+    width: 90%;
+    /* padding: 14px 20px; */
+    text-decoration: none;
+    text-align: center;
+  }
+  /*This refers to the style of navigation links.*/
+  button:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+  }
+
+
+
+
+
+  .box > p {
+    text-align: center;
+  }
+  /*This centres the text in the box */
+  
+  
+  .box > img {
+    width: 50%;
+  /* The width is a percentage so that its size changes according to the space available on the screen. This is 
+  set to 50% so that it is smaller than the first project image.*/
+  }
+  
+  .first-project-img {
+    width: 100%;
+  }
+  /*the first project image is set to 100% so that it takes all available space within project box and is larger than
+  all other project images.*/
+  
+  .prework-img {
+    width: 48%;
+    display: inline-block;
+  }
+  /*The prework images have been set as display inline-block so that two images can be places within the same box and 
+  position next to each other rather than being stacked. This has been set to 48% rather than 50% because the padding 
+  takes up 4% of the pixels so by lowering the percentage there is enough room for both pictures to sit next to each 
+  other.*/
+   
+  @media screen and (max-width: 768px) {
+    main,
+     {
+      flex-direction: column;
+    }
+  }
