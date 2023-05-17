@@ -30,3 +30,11 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
+## Description
+The Weather Dashboard webpage has been created to support traveler's effectively plan their trips. This application has been created using html, JavaScript, CSS and API's. API stands for Application Programming Interface, and allows sharing of data, in this case api's were used to retrieve data about the weather and were adapted and displayed on the webpage using JavaScript. When a user opens the page they are presented with ............ list once complete........... When the user types a location in the search bar and clicks the search button adjacent, they will see the name of the city, current temperature, wind speed, humidity level and ----UV index---- of that location. 
+
+----An icon will also appear clearly displaying the type of weather so that it is much easier for readers to see and is more inclusive for those who struggle with reading. An alternative description has also been added to the icons to support inclusivity for people who use screen readers.---
+
+The user will also be presented with a 5 day forecast of that location so they are aware of what the next 5 days of weather will be and therefore they can use this information to plan activitys in advance. These 5 days also display the day of the week, current temperature, wind speed, humidity level and ----UV index---- of that location. 
+
+-------------This website also stores recent location searches in the search history with the use of local storage. This allows the user to view their recently searched locations and the ability to click these and view the weather for that location again. This improves the user experience as it allows users to quickly view the weather in places where they are living or visit regularly.--------------

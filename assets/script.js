@@ -280,7 +280,32 @@ searchBtn.addEventListener('click', onSearch);
 
 //// create an array of searched locations - jsn - plucked from top of this js code
 // var locationHistory = [];
+//     if (localStorage.getItem('location')!= null){
+//       array = JSON.parse(localStorage.getItem('location'));
+//     }
+//     console.log(locationHistory)
+//     // Find the index of the element in the array
+//     var index = array.indexOf(title);
+//     // Check if the element exists (index will be -1 if the element is not found)
+//     if (index !== -1) {
+//       // Remove the element using splice()
+//       array.splice(index, 1);
+//     }  
+//     array.push(title);
+//     //console.log(array);
 
+
+
+// function onSaveLocation(){
+//     var enteredLocation = locationInput.value;
+//  var locationHistory = document.getElementById("location-name").value
+//         if (enteredLocation !== "") {
+//           localStorage.setItem("location-name", enteredLocation);
+//           document.getElementById("history-locations").value = "";
+//       }     
+// }
+   
+//     onSaveLocation();
 
 //work day schedulor local storage:
 //var savedToDo = localStorage.getItem(hour) || '';  
@@ -308,6 +333,63 @@ searchBtn.addEventListener('click', onSearch);
 //         highscores.appendChild(list);
 //     }
 
+// function saveHistory(title){
+//     // get localHistory to array
+//     var array = [];
+//     if (localStorage.getItem('saved-titles')!= null){
+//       array = JSON.parse(localStorage.getItem('saved-titles'));
+//     }
+//     // Find the index of the element in the array
+//     var index = array.indexOf(title);
+//     // Check if the element exists (index will be -1 if the element is not found)
+//     if (index !== -1) {
+//       // Remove the element using splice()
+//       array.splice(index, 1);
+//     }  
+//     array.push(title);
+//     //console.log(array);
+//     localStorage.setItem('saved-titles', JSON.stringify(array));
+//     // remove existing entries
+//     // Remove all li elements (children) from the ul
+//     while (historyEl.firstChild) {
+//       historyEl.removeChild(historyEl.firstChild);
+//     }  
+//     // create all childs
+//     for (i=array.length-1; i>=0; i--){
+//       liEl = document.createElement('li');
+//       liEl.textContent = array[i];
+//       liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-1');
+//       //console.log(liEl);
+//       historyEl.appendChild(liEl);
+//     }
+    
+//   }
+
+
+// function loadFromLocalStorage(){
+//     var array = [];
+//     if (localStorage.getItem('saved-titles')!= null){
+//       array = JSON.parse(localStorage.getItem('saved-titles'));
+//     }
+//     while (historyEl.firstChild) {
+//       historyEl.removeChild(historyEl.firstChild);
+//     }  
+//     // create all childs
+//     for (i=array.length-1; i>=0; i--){
+//       liEl = document.createElement('li');
+//       liEl.textContent = array[i];
+//       liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-2');
+//       //console.log(liEl);
+//       historyEl.appendChild(liEl);
+//     }
+  
+//   }
+// loadFromLocalStorage();
+
+
+
+
+
 
 // need to add icons.............................................................................................
 
@@ -318,3 +400,4 @@ searchBtn.addEventListener('click', onSearch);
 //   var humidity = weather.main.humidity;
 //   var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
 //   var iconDescription = weather.weather[0].description || weather[0].main;
+
