@@ -99,11 +99,47 @@ var showCurrentWeather = (weatherData) => {
     //check symbol % looks different on jsn's
     document.getElementById('uvi_value').textContent = `${currentWeather.uvi}`;
 
+    // var iconUrl = `https://openweathermap.org/img/w/${currentWeather.icon}.png`;
+    // var iconDescription = weather.weather[0].description
+    // fetch(iconUrl)
+    // .then(function (response) {
+    //     if (response.status !== 200){
+    //       console.log(response);
+    //     }   
+    //     return response.json();
+    //   })
+    //   .then(function(data){
+    //     console.log(data);
+    //     imageEl.src = data.icon;
+        // imageEl.alt = data.Title;
+    // });
+
+    }
+    // var img = document.createElement("img");
+    // img.src = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+    // document.getElementsByClassName;('weather-icon').appendChild(img);
+
+    // console.log(img)
+
+    // createElement()
     // var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
     // var iconDescription = weather.weather[0].description || weather[0].main;
 
-    // document.getElementsByClassName;('#weather-icon')
-}
+    // document.getElementsByClassName;('#weather-icon').textContent = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`
+    // document.getElementsByClassName;('#weather-icon').appendChild(iconDescription);
+
+//         list.innerHTML = `<li id="score-item" class = "player">${player}</li><li id="score-item" class = "score">${score}</li>`
+//         highscores.appendChild(list);
+
+    //icon example
+    // var date = dayjs().format('M/D/YYYY');
+//   // Store response data from our fetch request in variables
+//   var tempF = weather.main.temp;
+//   var windMph = weather.wind.speed;
+//   var humidity = weather.main.humidity;
+//   var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+//   var iconDescription = weather.weather[0].description || weather[0].main;
+// }
 
 var showNext5Days = (weatherData) => {
 
@@ -131,6 +167,9 @@ document.getElementById('day1wind_value').textContent = `${dailyForecast.wind_sp
 document.getElementById('day1humid_value').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day1uvi_value').textContent = `${dailyForecast.uvi}`;
 
+// var img = document.createElement("img");
+// img.src = `https://openweathermap.org/img/w/${dailyForecast.icon}.png`;
+// document.getElementsById('day1icon').appendChild(img);
 
 //day 2 of 5 forecast days
 var dailyForecast = dailyData[2];
