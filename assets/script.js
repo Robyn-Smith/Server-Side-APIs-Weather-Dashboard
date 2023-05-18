@@ -107,7 +107,14 @@ var showCurrentWeather = (weatherData) => {
     //check symbol % looks different on jsn's
     document.getElementById('cloudsValue').textContent = `${currentWeather.clouds}%`;
 
-    // var img = document.createElement("img");
+//  var img = document.createElement("img");
+//     img.innerHTML = ` <img
+//                 src="https://openweathermap.org/img/wn/${
+//                   extraForecast.weather[0].icon
+//                 }@2x.png" />`
+//     document.getElementsByClassName('#weather-icon').appendChild(img);
+
+   
     // img.innerHTML = `<img id="weather-icon"
     // src="https://openweathermap.org/img/w/${currentWeather.icon}.png" 
     // alt="">
@@ -184,6 +191,13 @@ document.getElementById('day1tempValue').textContent = `${dailyForecast.temp.day
 document.getElementById('day1windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day1humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day1cloudsValue').textContent = `${dailyForecast.clouds}%`;
+
+// var img = document.createElement("img");
+// img.innerHTML = ` <img
+//             src="https://openweathermap.org/img/wn/${
+//               dailyData[0].icon
+//             }@2x.png" />`
+// document.getElementsByClassName('#weather-icon').appendChild(img);
 
 // var img = document.createElement("img");
 // img.src = `https://openweathermap.org/img/w/${dailyForecast.icon}.png`;
