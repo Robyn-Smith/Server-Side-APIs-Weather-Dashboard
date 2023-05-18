@@ -88,7 +88,7 @@ var locationSearch = (search) => {
         });
 }
 
-var showCurrentWeather = (weatherData) => {
+var showCurrentWeather = (weatherData, locationData) => {
     var currentWeather = weatherData.current;
 
     //shows the current weather data
@@ -96,6 +96,14 @@ var showCurrentWeather = (weatherData) => {
     document.getElementById('windValue').textContent = `${currentWeather.wind_speed}MPH`;
     document.getElementById('humidValue').textContent = `${currentWeather.humidity}%`;
     document.getElementById('cloudsValue').textContent = `${currentWeather.clouds}%`;
+
+    var weatherIcon = document.getElementById('weather-icon');
+    weatherIcon.innerHTML = '';
+
+    var img = document.createElement("div");
+    img.innerHTML = ` <img src="https://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png" />`
+    weatherIcon.appendChild(img);
+    
 
 //  var img = document.createElement("img");
 //     img.innerHTML = ` <img
@@ -183,11 +191,12 @@ document.getElementById('day1cloudsValue').textContent = `${dailyForecast.clouds
 //this array is set to 1 as it is second in the array, the current weather is 0 in the array as it is first.
 //this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
-var img = document.createElement("div");
-img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyForecast.weather[0].icon}.png" />`
-document.getElementById('weather-icon').appendChild(img);
+var weatherIcon = document.getElementById('day1weather-icon');
+weatherIcon.innerHTML = '';
 
-console.log(img)
+var img = document.createElement("div");
+img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyForecast.weather[1].icon}.png" />`
+weatherIcon.appendChild(img);
 
 // var img = document.createElement("img");
 // img.src = `https://openweathermap.org/img/w/${dailyForecast.icon}.png`;
@@ -414,4 +423,7 @@ searchBtn.addEventListener('click', onSearch);
 //   var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
 //   var iconDescription = weather.weather[0].description || weather[0].main;
 
-loadRecentLocations();
+// function loadRecentLocations() {
+//     const storedLocations =
+// }
+// loadRecentLocations();
