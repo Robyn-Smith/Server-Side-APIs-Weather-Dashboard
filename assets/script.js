@@ -1,5 +1,5 @@
 var WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
-var WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
+var WEATHER_API_KEY = '3770aa61038a0816864d556d797ecb9f';
 
 //Global variables so that they can be regularly called by any function.
 
