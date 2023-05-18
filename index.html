@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <!--CSS styling-->
     <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/style.css">
     <style type="text/css" class="background-image">
@@ -13,24 +14,26 @@
       </style>
 </head>
 <body>
+    <!--header-->
     <header>
         <h1>Weather Dashboard</h1>
     </header>
 
     <main>
-        <!--side bar-->
+        <!--search section in the aside-->
         <aside>
             <div class="search-section">
                 <input type="text" id="location" placeholder="Enter a location here">
                 <button id="search">Search</button>
-                <div id="warning"></div> <!--change error to warning-->
+                <div id="warning"></div> 
             </div>
             <hr />
-            <div class= "history" id="history-locations">Recent Locations</div> <!--change to history and history-location?-->
+            <div class= "history" id="history-locations">Recent Locations</div> 
         </aside>
 
-        <!--dashboard area-->
+        <!--Weather Dashboard section-->
         <section>
+            <!--Current Weather-->
             <div id="weather">
                 <div class="weather-icon">
                   <div class="weather-location" id="location-name">City, Country</div>
@@ -59,10 +62,12 @@
                     </div> -->
                 </div>
             </div>
+            <!--Weather forecast for the next 5 days-->
             <div id="forecast">
-                <h2>5-Day Forecast</h2> <!--change to h2-->
+                <h2>5-Day Forecast</h2> 
                 <div id="forecast-days">
-                    <div class="day1weather-info"> <!--could copy these sections 5 times for each day rather than adding dynamically in javascript-->
+                    <!--Day 1 of 5-->
+                    <div class="day1weather-info"> 
                         <div class="date">
                             <span>Day:</span>
                             <span id="day1dayValue">-</span>
@@ -73,7 +78,7 @@
                         </div>
                         <div class="wind">
                             <span>Wind:</span>
-                            <span id="day1windValue">-</span> <!--change order? add pollen count?-->
+                            <span id="day1windValue">-</span>
                         </div>
                         <div class="humidity">
                             <span>Humidity:</span>
@@ -88,6 +93,7 @@
                         </div> -->
                     </div>
 
+                    <!--Day 2 of 5-->
                     <div class="day2weather-info"> 
                         <div class="date">
                             <span>Day:</span>
@@ -99,7 +105,7 @@
                         </div>
                         <div class="wind">
                             <span>Wind:</span>
-                            <span id="day2windValue">-</span> <!--change order? add pollen count?-->
+                            <span id="day2windValue">-</span> 
                         </div>
                         <div class="humidity">
                             <span>Humidity:</span>
@@ -111,6 +117,7 @@
                         </div>
                     </div>
 
+                    <!--Day 3 of 5-->
                     <div class="day3weather-info"> 
                         <div class="date">
                             <span>Day:</span>
@@ -122,7 +129,7 @@
                         </div>
                         <div class="wind">
                             <span>Wind:</span>
-                            <span id="day3windValue">-</span> <!--change order? add pollen count?-->
+                            <span id="day3windValue">-</span>
                         </div>
                         <div class="humidity">
                             <span>Humidity:</span>
@@ -134,6 +141,7 @@
                         </div>
                     </div>
 
+                    <!--Day 4 of 5-->
                     <div class="day4weather-info"> 
                         <div class="date">
                             <span>Day:</span>
@@ -145,7 +153,7 @@
                         </div>
                         <div class="wind">
                             <span>Wind:</span>
-                            <span id="day4windValue">-</span> <!--change order? add pollen count?-->
+                            <span id="day4windValue">-</span>
                         </div>
                         <div class="humidity">
                             <span>Humidity:</span>
@@ -157,6 +165,7 @@
                         </div>
                     </div>
 
+                    <!--Day 5 of 5-->
                     <div class="day5weather-info"> 
                         <div class="date">
                             <span>Day:</span>
@@ -185,6 +194,7 @@
         </section>
     </main>
 </body>
+<!--JavaScript links-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- <script
   src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
