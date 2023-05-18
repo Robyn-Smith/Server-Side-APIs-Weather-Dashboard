@@ -1,7 +1,7 @@
 var WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
 var WEATHER_API_KEY = '3770aa61038a0816864d556d797ecb9f';
 
-//Global variables so that they can be regularly called by any function.
+//Global variables, so that they can be regularly called by any function. API key allows access to api.
 
 // create an array of searched locations - jsn
 // var locationHistory = [];
@@ -34,29 +34,25 @@ var removeWarning = () => {
     warningDisplay.textContent = '';
 }//remove warning
 
-//Display an warning - jsn
 var displayWarning = (text) => {
     var warningDisplay = document.getElementById('warning');
     warningDisplay.textContent = text;
 
-    //set a timer to clear it after 3 seconds - jsn//changed to 2 seconds
-//it shows warning then hides it
     setTimeout(removeWarning, 2000);
-} 
+} //shows the warning and removes it after 2 seconds
 
 var locationSearch = (search) => {
 
-    // Lookup the location to get the Lat/Lon - jsn
+    // searches the location to retrieve the latitude and longitude data
     var apiURL = WEATHER_API_BASE_URL + "/geo/1.0/direct?q=" + search + "&limit=5&appid=" + WEATHER_API_KEY;
-    //concatinated version mine
     fetch(apiURL)
         .then(response => response.json())
         .then(data => {
 
             console.log(data);
 
-            // Pick the First location from the results - jsn
-            //var location = data[0];
+            //this chooses the first location from the results, in the array
+            // var location = data[0];
             var lat = data[0].lat;
             var lon = data[0].lon;
 
@@ -69,7 +65,7 @@ var locationSearch = (search) => {
 
             console.log(myData);
 
-            // Get the Weather for the cached location - jsn
+            // This collects the weather data for the cached location
             var apiURL = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
            
             console.log(apiURL);
@@ -79,19 +75,13 @@ var locationSearch = (search) => {
 
                     console.log(data);
 
-                    //show the current weather forecast- old jsn
+                    //display the current weather
                     showCurrentWeather(data);
 
-                    //show the 5 day weather forecast - jsn - change forecast to report?
+                    //display the 5 day weather forecast
                     showNext5Days(data);
-
-                    //pick the first location -new jsn
-
-                    // Display the Current Weather - new jsn
-
-                    // Display the 5 Day Forecast - new jsn
                 });
-            //display the weather- jsn
+            //show the weather
             displayWeather(myData);
         });
 }
@@ -99,12 +89,10 @@ var locationSearch = (search) => {
 var showCurrentWeather = (weatherData) => {
     var currentWeather = weatherData.current;
 
-    //display the current weather at the top of the dashboard - jsn
+    //shows the current weather data
     document.getElementById('tempValue').textContent = `${currentWeather.temp}°`;
-
     document.getElementById('windValue').textContent = `${currentWeather.wind_speed}MPH`;
     document.getElementById('humidValue').textContent = `${currentWeather.humidity}%`;
-    //check symbol % looks different on jsn's
     document.getElementById('cloudsValue').textContent = `${currentWeather.clouds}%`;
 
 //  var img = document.createElement("img");
@@ -169,7 +157,7 @@ var showCurrentWeather = (weatherData) => {
 
 var showNext5Days = (weatherData) => {
 
-    //get the daily forecasts- jsn
+    //collects the daily forecast
     var dailyData = weatherData.daily;
 
     //show the forcast section - jsn
@@ -182,7 +170,6 @@ var showNext5Days = (weatherData) => {
 
 //day 1 of 5 forecast days
 var dailyForecast = dailyData[1];
-//check if array starts from 0 being current day
 var day1 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
 console.log(day1);
 
@@ -191,12 +178,12 @@ document.getElementById('day1tempValue').textContent = `${dailyForecast.temp.day
 document.getElementById('day1windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day1humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day1cloudsValue').textContent = `${dailyForecast.clouds}%`;
+//this array is set to 1 as it is second in the array, the current weather is 0 in the array as it is first.
+//this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
 // var img = document.createElement("img");
 // img.innerHTML = ` <img
-//             src="https://openweathermap.org/img/wn/${
-//               dailyData[0].icon
-//             }@2x.png" />`
+//             src="https://openweathermap.org/img/wn/${dailyForecast[1].icon}@2x.png" />`
 // document.getElementsByClassName('#weather-icon').appendChild(img);
 
 // var img = document.createElement("img");
@@ -205,7 +192,6 @@ document.getElementById('day1cloudsValue').textContent = `${dailyForecast.clouds
 
 //day 2 of 5 forecast days
 var dailyForecast = dailyData[2];
-//check if array starts from 0 being current day
 var day2 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
 console.log(day2);
 
@@ -214,11 +200,11 @@ document.getElementById('day2tempValue').textContent = `${dailyForecast.temp.day
 document.getElementById('day2windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day2humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day2cloudsValue').textContent = `${dailyForecast.clouds}%`;
-
+//this array is set to 2 as it is third in the array
+//this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
 //day 3 of 5 forecast days
 var dailyForecast = dailyData[3];
-//check if array starts from 0 being current day
 var day3 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
 console.log(day3);
 
@@ -227,11 +213,11 @@ document.getElementById('day3tempValue').textContent = `${dailyForecast.temp.day
 document.getElementById('day3windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day3humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day3cloudsValue').textContent = `${dailyForecast.clouds}%`;
-
+//this array is set to 3 as it is fourth in the array.
+//this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
 //day 4 of 5 forecast days
 var dailyForecast = dailyData[4];
-//check if array starts from 0 being current day
 var day4 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
 console.log(day4);
 
@@ -240,49 +226,50 @@ document.getElementById('day4tempValue').textContent = `${dailyForecast.temp.day
 document.getElementById('day4windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day4humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day4cloudsValue').textContent = `${dailyForecast.clouds}%`;
-
+//this array is set to 4 as it is fifth in the array.
+//this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
 //day 5 of 5 forecast days
 var dailyForecast = dailyData[5];
-//check if array starts from 0 being current day
 var day5 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekday: 'long'});
 console.log(day5);
-//could use momentum js or day js instead
+
 $('#day5dayValue').text(day5);  
 document.getElementById('day5tempValue').textContent = `${dailyForecast.temp.day}°`;
 document.getElementById('day5windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day5humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day5cloudsValue').textContent = `${dailyForecast.clouds}%`;
-}
+}//this array is set to 5 as it is sixth in the array.
+//this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
 
-var weatherReport = (lat, lon) => {
+// var weatherReport = (lat, lon) => {
 
     //get the weather for the cached location
     //repeat from earlier???
-        // Get the Weather for the cached location - jsn
-        var apiURL = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
+        // retrieve the Weather data for the cached location
+        // var apiURL = WEATHER_API_BASE_URL + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + WEATHER_API_KEY;
         
-            console.log(apiURL);
-            fetch(apiURL)
-                .then(response => response.json())
-                .then(data => {
+        //     console.log(apiURL);
+        //     fetch(apiURL)
+        //         .then(response => response.json())
+        //         .then(data => {
 
-                    console.log(data);
+        //             console.log(data);
 
                     //show the current weather forecast- old jsn
-                    showCurrentWeather(data);
+                    // showCurrentWeather(data);
 
                     //show the 5 day weather forecast - jsn - change forecast to report?
-                    showNext5Days(data);
+                    // showNext5Days(data);
 
                     //pick the first location -new jsn
 
                     // Display the Current Weather - new jsn
 
                     // Display the 5 Day Forecast - new jsn
-                });
-        }
+        //         });
+        // }
 
 // Add an event handler for the search button - new jsn
 
@@ -290,7 +277,7 @@ var weatherReport = (lat, lon) => {
 var displayWeather = (weatherData) => {
     document.getElementById('location-name').textContent = `${weatherData.name}, ${weatherData.country}`;
 
-    weatherReport(weatherData.lat,weatherData.lon);
+    // weatherReport(weatherData.lat,weatherData.lon);
 }
 
 //search text and search button - jsn
