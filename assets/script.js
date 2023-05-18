@@ -1,40 +1,48 @@
 var WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
 var WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
 
+//Global variables so that they can be regularly called by any function.
+
 // create an array of searched locations - jsn
-var locationHistory = [];
+// var locationHistory = [];
 //could change to var?
 
 var onSearch = () => {
-//could chand to onSearch
+    var enteredLocation = locationInput.value;//retrive location entered by the user
 
-    //get the location entered by user - jsn
-    var enteredLocation = locationInput.value;
-
-    //verify its valid, if it is, look up location -jsn
-    //if nothing is entered display warning message - check if anything entered
     if (enteredLocation === '') {
         displayWarning('Please enter a valid location');
     } else {
         locationSearch(enteredLocation);
     }
-}
 
-// Clear the last warning on the page -jsn
+        localStorage.setItem("recent",enteredLocation);
+        $("#history-locations").val(localStorage.getItem("recent"));
+        // localStorage.getItem("recent",enteredLocation);
+        // var list = document.createElement("li");
+        // list.classList.add("list");
+    
+        // list.innerHTML = `<li id="list" class = "recent">${enteredLocation}</li>`
+        // $("#history-locations").appendChild(list);
+     
+}   //check that the user has entered a location, if they have not entered anything 
+    //a warning is displayed for 2 seconds, if they have continue to search for 
+    //weather data on location
+
 var removeWarning = () => {
     var warningDisplay = document.getElementById('warning');
     warningDisplay.textContent = '';
-}//changed to warning 
+}//remove warning
 
 //Display an warning - jsn
 var displayWarning = (text) => {
     var warningDisplay = document.getElementById('warning');
     warningDisplay.textContent = text;
 
-    //set a timer to clear it after 3 seconds - jsn
-    setTimeout(removeWarning, 2000);
-} //changed to 2 seconds
+    //set a timer to clear it after 3 seconds - jsn//changed to 2 seconds
 //it shows warning then hides it
+    setTimeout(removeWarning, 2000);
+} 
 
 var locationSearch = (search) => {
 
