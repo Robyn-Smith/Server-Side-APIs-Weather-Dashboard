@@ -93,11 +93,17 @@ var showCurrentWeather = (weatherData) => {
 
     //display the current weather at the top of the dashboard - jsn
     document.getElementById('tempValue').textContent = `${currentWeather.temp}°`;
-    //&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
+
     document.getElementById('windValue').textContent = `${currentWeather.wind_speed}MPH`;
     document.getElementById('humidValue').textContent = `${currentWeather.humidity}%`;
     //check symbol % looks different on jsn's
     document.getElementById('cloudsValue').textContent = `${currentWeather.clouds}%`;
+
+    // var img = document.createElement("img");
+    // img.innerHTML = `<img id="weather-icon"
+    // src="https://openweathermap.org/img/w/${currentWeather.icon}.png" 
+    // alt="">
+    // </>`
 
     // var iconUrl = `https://openweathermap.org/img/w/${currentWeather.icon}.png`;
     // var iconDescription = currentWeather.description
@@ -167,7 +173,6 @@ console.log(day1);
 
 $('#day1dayValue').text(day1);  
 document.getElementById('day1tempValue').textContent = `${dailyForecast.temp.day}°`;
-//&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
 document.getElementById('day1windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day1humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day1cloudsValue').textContent = `${dailyForecast.clouds}%`;
@@ -184,7 +189,6 @@ console.log(day2);
 
 $('#day2dayValue').text(day2);  
 document.getElementById('day2tempValue').textContent = `${dailyForecast.temp.day}°`;
-//&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
 document.getElementById('day2windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day2humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day2cloudsValue').textContent = `${dailyForecast.clouds}%`;
@@ -198,7 +202,6 @@ console.log(day3);
 
 $('#day3dayValue').text(day3);  
 document.getElementById('day3tempValue').textContent = `${dailyForecast.temp.day}°`;
-//&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
 document.getElementById('day3windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day3humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day3cloudsValue').textContent = `${dailyForecast.clouds}%`;
@@ -212,7 +215,6 @@ console.log(day4);
 
 $('#day4dayValue').text(day4);  
 document.getElementById('day4tempValue').textContent = `${dailyForecast.temp.day}°`;
-//&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
 document.getElementById('day4windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day4humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day4cloudsValue').textContent = `${dailyForecast.clouds}%`;
@@ -226,7 +228,6 @@ console.log(day5);
 //could use momentum js or day js instead
 $('#day5dayValue').text(day5);  
 document.getElementById('day5tempValue').textContent = `${dailyForecast.temp.day}°`;
-//&deg insead of degree symbol - jsn got the actual symbol check this as might not work°
 document.getElementById('day5windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day5humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day5cloudsValue').textContent = `${dailyForecast.clouds}%`;

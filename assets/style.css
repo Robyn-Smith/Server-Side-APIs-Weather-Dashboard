@@ -120,6 +120,7 @@ h2 {
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: #ffffff42;
+    /* display: inline-block; */
   }
   
   .day1weather-info {
@@ -229,8 +230,9 @@ h2 {
 
    
   @media screen and (max-width: 768px) {
-    main,
-     {
+    /* main,
+{
       flex-direction: column;
-    }
+    } */
+    .weather-info{display: inline-block;}
   }
