@@ -4,7 +4,7 @@ var WEATHER_API_KEY = '3770aa61038a0816864d556d797ecb9f';
 //Global variables, so that they can be regularly called by any function. API key allows access to api.
 
 // create an array of searched locations - jsn
-// var locationHistory = [];
+var recentLocations = [];
 //could change to var?
 
 var onSearch = () => {
@@ -15,8 +15,11 @@ var onSearch = () => {
     } else {
         locationSearch(enteredLocation);
     }
-
+//................................................not working................................
+//localStorage.setItem("player", JSON.stringify(score));
         // localStorage.setItem("recent",enteredLocation);
+        // localStorage.setItem('recent', enteredLocation, JSON.stringify(recentLocations));
+        //add stringify??
         // $("#history-locations").val(localStorage.getItem("recent"));
 
         // var recent = localStorage.getItemrecent
@@ -45,6 +48,8 @@ var displayWarning = (text) => {
 
 var locationSearch = (search) => {
 
+    //save the location to recent Locations
+    saveRecentLocation(search);
     // searches the location to retrieve the latitude and longitude data
     var apiURL = WEATHER_API_BASE_URL + "/geo/1.0/direct?q=" + search + "&limit=5&appid=" + WEATHER_API_KEY;
     fetch(apiURL)
@@ -191,12 +196,23 @@ document.getElementById('day1cloudsValue').textContent = `${dailyForecast.clouds
 //this array is set to 1 as it is second in the array, the current weather is 0 in the array as it is first.
 //this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
-var weatherIcon = document.getElementById('day1weather-icon');
-weatherIcon.innerHTML = '';
+// var weatherIcon = document.getElementById('day1weather-icon');
+// weatherIcon.innerHTML = "";
 
-var img = document.createElement("div");
-img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyForecast.weather[1].icon}.png" />`
-weatherIcon.appendChild(img);
+// var img = document.createElement("div");
+// img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyForecast.weather[0].icon}.png" />`
+// weatherIcon.appendChild(img);
+
+// var iconCode = dailyForecast.weather[0].icon;
+// var iconUrl = "http://openweathermap.org/img/w" + iconCode + ".png";
+// document.getElementById('day1weather-icon').innerHTML += `<img src='${iconUrl}'></img>`
+
+// var weatherIcon = document.getElementById('day1weather-icon');
+// weatherIcon.innerHTML = '';
+
+// var img = document.createElement("div");
+// img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyForecast.weather[0].icon}.png" />`
+// weatherIcon.appendChild(img);
 
 // var img = document.createElement("img");
 // img.src = `https://openweathermap.org/img/w/${dailyForecast.icon}.png`;
@@ -423,7 +439,48 @@ searchBtn.addEventListener('click', onSearch);
 //   var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
 //   var iconDescription = weather.weather[0].description || weather[0].main;
 
-// function loadRecentLocations() {
-//     const storedLocations =
-// }
-// loadRecentLocations();
+function saveRecentLocation(location) {
+    //look for the location within the recentLocations array
+    const index = recentLocations.indexOf(location);
+
+    //if it's not already in the array, add it
+    if (index === -1) {
+        recentLocations.push(location);
+
+        //add it to the list of recent locations
+        localStorage.setItem('recentLocations', JSON.stringify(recentLocations));
+    }
+
+}
+
+
+//not working.........................................................................................
+function loadRecentLocations() {
+    //load everything from local storage
+    const storedLocations = JSON.parse(localStorage.getItem('locationInput'));
+    ///issue with this line????
+
+    //load the recent locations into the recentLocation array
+    if (storedLocations!== null) {
+        recentLocations.push(...storedLocations);
+
+        //loop through the recent locations and add them to the list
+        for (let i=0; i < loadRecentLocations.length; i++) {
+            var newLocation = document.createElement('div');
+            newLocation.classList.add('recent-location');
+            newLocation.textContent = recentLocations[i];
+            newLocation.addEventListener('click', onClickRecentLocation);
+
+            document.getElementById('recent-locations').appendChild(newLocation);
+        }
+    }
+}
+function onClickRecentLocation(event) {
+    console.log('clicked');
+
+    //get the location from the clicked element
+    const location = event.target.textContent;
+    locationSearch(location);
+}
+
+loadRecentLocations();
