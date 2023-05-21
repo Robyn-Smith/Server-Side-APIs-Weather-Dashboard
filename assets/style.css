@@ -1,40 +1,3 @@
-/* #forecast #forecast-days {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-} */
-/* aside { */
-    /* background-color: rgba(0, 179, 255, 0.237);
-    margin: none;
-}
-
-h1 {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(255, 255, 111);
-    font-size: 3em;
-}
-
-h2 {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(255, 255, 111);  
-}
-
-.day1weather-info { */
-    /* display: flex;
-    flex-wrap: wrap; */
-    /* padding: 4%; */
-    /* position: relative; */
-    /* align-items: flex-start; */
-/* } */
-
-/* .forecast-days {
-    display: flex;
-    flex-wrap: wrap;  
-    justify-content: space-between;
-    align-items: flex-start;
-} */
-
 :root {
     --white: #ffffff;
     --dark-blue: #10464da2;
@@ -67,9 +30,9 @@ h2 {
   h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-   font-weight: bolder;
-   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   color: var(--white);
+    font-weight: bolder;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--white);
   }
   /* h1 is bold and has been given a larger font size compared to other headings on the page so that it is clear, 
   visable and stands out. Margin bottom gives the heading space under the text. Font family is included to ensure 
@@ -106,11 +69,10 @@ h2 {
   to each other and allowed them to be responsive to screen size changes.*/
   
   aside {
-    /* flex: 1; */
     background-color: #55a8a8dc;
-    /* padding: 20px; */
     text-align: center;
     width: fit-content;
+    padding-top: 10px;
   }
   
   .container {
@@ -120,7 +82,6 @@ h2 {
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: #ffffff42;
-    /* display: inline-block; */
   }
   
   .day1 {
@@ -195,40 +156,23 @@ h2 {
   button {
     color: var(--dark-blue);
     width: 90%;
-    /* padding: 14px 20px; */
     text-decoration: none;
     text-align: center;
   }
-  /*This refers to the style of navigation links.*/
   button:hover {
     background-color: var(--dark-blue);
     color: var(--white);
   }
 
+.history {
+  padding-top: 20px;
+  font-size: 20px;
+}
 
+.place:hover {
+  color: var(--white);
+}
 
-
-
-  /* .box > p {
-    text-align: center;
-  } */
-  /*This centres the text in the box */
-  
-  
-  /* .box > img {
-    width: 50%;
-  }
-   */
-  /* .first-project-img {
-    width: 100%;
-  } */
-  
-  /* .prework-img {
-    width: 48%;
-    display: inline-block;
-  } */
-
-   
   @media screen and (max-width: 768px) {
     /* main,
 {

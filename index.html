@@ -27,8 +27,8 @@
                 <button id="search">Search</button>
                 <div id="warning"></div> 
             </div>
-            <hr />
-            <div class= "history" id="recent-locations">Recent Locations</div> 
+            <!-- <hr /> -->
+            <div class= "history" id="search_history">Recent Locations</div> 
         </aside>
 
         <!--Weather Dashboard section-->
@@ -36,19 +36,12 @@
             <!--Current Weather-->
             <div id="weather">
                 <div class="weather-location" id="location-name">City, Country</div>
-                <div id="weather-icon">
-                  
-                  <!-- <input type="text" id="player" placeholder="Enter your initials here" /> -->
-                  <!-- <img src="assets/images/cloudy.png" alt=""> need to get icon -->
+                <div id="icon">
                 </div>
                 <div class="container"> 
                     <div class="clouds">
                         <span>Clouds:</span>
                         <span id="cloudsValue">-</span>
-                    </div>
-                    <div class="temperature">
-                        <span>Temperature:</span>
-                        <span id="tempValue">-</span>
                     </div>
                     <div class="wind">
                         <span>Wind:</span>
@@ -57,11 +50,11 @@
                     <div class="humidity">
                         <span>Humidity:</span>
                         <span id="humidValue">-</span>
+                    </div>                    
+                    <div class="temperature">
+                        <span>Temperature:</span>
+                        <span id="tempValue">-</span>
                     </div>
-                    
-                    <!-- <div class="weather-icon">
-                        <img src="#" id="ICON">
-                    </div> -->
                 </div>
             </div>
             <!--Weather forecast for the next 5 days-->
@@ -74,14 +67,10 @@
                             <span>Day:</span>
                             <span id="day1dayValue">-</span>
                         </div>
-                        <div id="day1weather-icon"></div>
+                        <div id="day1icon"></div>
                             <div class="clouds">
                             <span>Clouds:</span>
                             <span id="day1cloudsValue">-</span>
-                        </div>
-                        <div class="temperature">
-                            <span>Temperature:</span>
-                            <span id="day1tempValue">-</span>
                         </div>
                         <div class="wind">
                             <span>Wind:</span>
@@ -90,11 +79,11 @@
                         <div class="humidity">
                             <span>Humidity:</span>
                             <span id="day1humidValue">-</span>
+                        </div>                        
+                        <div class="temperature">
+                            <span>Temperature:</span>
+                            <span id="day1tempValue">-</span>
                         </div>
-
-                        <!-- <div class="weather-icon">
-                            <img src="#" id="day1icon">
-                        </div> -->
                     </div>
 
                     <!--Day 2 of 5-->
@@ -103,14 +92,10 @@
                             <span>Day:</span>
                             <span id="day2dayValue">-</span>
                         </div>
-                        <div id="day2weather-icon"></div>
+                        <div id="day2icon"></div>
                             <div class="clouds">
                             <span>Clouds:</span>
                             <span id="day2cloudsValue">-</span>
-                        </div>
-                        <div class="temperature">
-                            <span>Temperature:</span>
-                            <span id="day2tempValue">-</span>
                         </div>
                         <div class="wind">
                             <span>Wind:</span>
@@ -119,8 +104,11 @@
                         <div class="humidity">
                             <span>Humidity:</span>
                             <span id="day2humidValue">-</span>
+                        </div>                        
+                        <div class="temperature">
+                            <span>Temperature:</span>
+                            <span id="day2tempValue">-</span>
                         </div>
-
                     </div>
 
                     <!--Day 3 of 5-->
@@ -129,14 +117,10 @@
                             <span>Day:</span>
                             <span id="day3dayValue">-</span>
                         </div>
-                        <div id="day3weather-icon"></div>
+                        <div id="day3icon"></div>
                             <div class="clouds">
                             <span>Clouds:</span>
                             <span id="day3cloudsValue">-</span>
-                        </div>
-                        <div class="temperature">
-                            <span>Temperature:</span>
-                            <span id="day3tempValue">-</span>
                         </div>
                         <div class="wind">
                             <span>Wind:</span>
@@ -145,8 +129,11 @@
                         <div class="humidity">
                             <span>Humidity:</span>
                             <span id="day3humidValue">-</span>
+                        </div>                        
+                        <div class="temperature">
+                            <span>Temperature:</span>
+                            <span id="day3tempValue">-</span>
                         </div>
-
                     </div>
 
                     <!--Day 4 of 5-->
@@ -155,14 +142,10 @@
                             <span>Day:</span>
                             <span id="day4dayValue">-</span>
                         </div>
-                        <div id="day4weather-icon"></div>
+                        <div id="day4icon"></div>
                             <div class="clouds">
                             <span>Clouds:</span>
                             <span id="day4cloudsValue">-</span>
-                        </div>
-                        <div class="temperature">
-                            <span>Temperature:</span>
-                            <span id="day4tempValue">-</span>
                         </div>
                         <div class="wind">
                             <span>Wind:</span>
@@ -171,8 +154,11 @@
                         <div class="humidity">
                             <span>Humidity:</span>
                             <span id="day4humidValue">-</span>
+                        </div>                        
+                        <div class="temperature">
+                            <span>Temperature:</span>
+                            <span id="day4tempValue">-</span>
                         </div>
-
                     </div>
 
                     <!--Day 5 of 5-->
@@ -181,15 +167,11 @@
                             <span>Day:</span>
                             <span id="day5dayValue">-</span>
                         </div>
-                        <div id="day5weather-icon"></div>
+                        <div id="day5icon"></div>
                         <div class="clouds">
                             <span>Clouds:</span>
                             <span id="day5cloudsValue">-</span>
                         </div> 
-                        <div class="temperature">
-                            <span>Temperature:</span>
-                            <span id="day5tempValue">-</span>
-                        </div>
                         <div class="wind">
                             <span>Wind:</span>
                             <span id="day5windValue">-</span> 
@@ -197,10 +179,12 @@
                         <div class="humidity">
                             <span>Humidity:</span>
                             <span id="day5humidValue">-</span>
-                        </div>
-                       
+                        </div>                        
+                        <div class="temperature">
+                            <span>Temperature:</span>
+                            <span id="day5tempValue">-</span>
+                        </div> 
                     </div>
-
                 </div>
             </div>
         </section>
@@ -208,10 +192,5 @@
 </body>
 <!--JavaScript links-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!-- <script
-  src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-  crossorigin="anonymous"
-></script> -->
 <script src="assets/script.js"></script>
 </html>
