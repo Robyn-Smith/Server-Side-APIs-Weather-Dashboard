@@ -4,7 +4,7 @@ var WEATHER_API_KEY = '3770aa61038a0816864d556d797ecb9f';
 //Global variables, so that they can be regularly called by any function. API key allows access to api.
 
 // create an array of searched locations - jsn
-var recentLocations = [];
+const recentLocations = [];
 //could change to var?
 
 var onSearch = () => {
@@ -196,12 +196,14 @@ document.getElementById('day1cloudsValue').textContent = `${dailyForecast.clouds
 //this array is set to 1 as it is second in the array, the current weather is 0 in the array as it is first.
 //this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
-// var weatherIcon = document.getElementById('day1weather-icon');
-// weatherIcon.innerHTML = "";
+console.log(dailyForecast)
 
-// var img = document.createElement("div");
-// img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyForecast.weather[0].icon}.png" />`
-// weatherIcon.appendChild(img);
+var weatherIcon = document.getElementById('day1weather-icon');
+weatherIcon.innerHTML = "";
+
+var img = document.createElement("div");
+img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyData[1].weather[0].icon}.png" />`
+weatherIcon.appendChild(img);
 
 // var iconCode = dailyForecast.weather[0].icon;
 // var iconUrl = "http://openweathermap.org/img/w" + iconCode + ".png";
@@ -228,6 +230,14 @@ document.getElementById('day2tempValue').textContent = `${dailyForecast.temp.day
 document.getElementById('day2windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day2humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day2cloudsValue').textContent = `${dailyForecast.clouds}%`;
+console.log(dailyForecast)
+
+var weatherIcon = document.getElementById('day2weather-icon');
+weatherIcon.innerHTML = "";
+
+var img = document.createElement("div");
+img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyData[2].weather[0].icon}.png" />`
+weatherIcon.appendChild(img);
 //this array is set to 2 as it is third in the array
 //this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
@@ -241,6 +251,13 @@ document.getElementById('day3tempValue').textContent = `${dailyForecast.temp.day
 document.getElementById('day3windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day3humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day3cloudsValue').textContent = `${dailyForecast.clouds}%`;
+
+var weatherIcon = document.getElementById('day3weather-icon');
+weatherIcon.innerHTML = "";
+
+var img = document.createElement("div");
+img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyData[3].weather[0].icon}.png" />`
+weatherIcon.appendChild(img);
 //this array is set to 3 as it is fourth in the array.
 //this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
@@ -254,6 +271,13 @@ document.getElementById('day4tempValue').textContent = `${dailyForecast.temp.day
 document.getElementById('day4windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day4humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day4cloudsValue').textContent = `${dailyForecast.clouds}%`;
+
+var weatherIcon = document.getElementById('day4weather-icon');
+weatherIcon.innerHTML = "";
+
+var img = document.createElement("div");
+img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyData[4].weather[0].icon}.png" />`
+weatherIcon.appendChild(img);
 //this array is set to 4 as it is fifth in the array.
 //this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
@@ -267,6 +291,13 @@ document.getElementById('day5tempValue').textContent = `${dailyForecast.temp.day
 document.getElementById('day5windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day5humidValue').textContent = `${dailyForecast.humidity}%`;
 document.getElementById('day5cloudsValue').textContent = `${dailyForecast.clouds}%`;
+
+var weatherIcon = document.getElementById('day5weather-icon');
+weatherIcon.innerHTML = "";
+
+var img = document.createElement("div");
+img.innerHTML = ` <img src="https://openweathermap.org/img/w/${dailyData[5].weather[0].icon}.png" />`
+weatherIcon.appendChild(img);
 }//this array is set to 5 as it is sixth in the array.
 //this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
@@ -448,7 +479,7 @@ function saveRecentLocation(location) {
         recentLocations.push(location);
 
         //add it to the list of recent locations
-        localStorage.setItem('recentLocations', JSON.stringify(recentLocations));
+        localStorage.setItem('locationInput', JSON.stringify(recentLocations));
     }
 
 }
@@ -465,7 +496,7 @@ function loadRecentLocations() {
         recentLocations.push(...storedLocations);
 
         //loop through the recent locations and add them to the list
-        for (let i=0; i < loadRecentLocations.length; i++) {
+        for (let i=0; i < recentLocations.length; i++) {
             var newLocation = document.createElement('div');
             newLocation.classList.add('recent-location');
             newLocation.textContent = recentLocations[i];
