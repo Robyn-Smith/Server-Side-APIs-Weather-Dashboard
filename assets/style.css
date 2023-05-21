@@ -113,7 +113,7 @@ h2 {
     width: fit-content;
   }
   
-  .weather-info {
+  .container {
     flex: 1;
     padding: 50px;
     display: flex;
@@ -123,7 +123,7 @@ h2 {
     /* display: inline-block; */
   }
   
-  .day1weather-info {
+  .day1 {
     border-style: solid;
     border-width: 1px;
     border-radius: var(--border-radius);
@@ -136,7 +136,7 @@ h2 {
     display: inline-block;
   }
 
-  .day2weather-info {
+  .day2 {
     border-style: solid;
     border-width: 1px;
     border-radius: var(--border-radius);
@@ -149,7 +149,7 @@ h2 {
     display: inline-block;
   }
 
-  .day3weather-info {
+  .day3 {
     border-style: solid;
     border-width: 1px;
     border-radius: var(--border-radius);
@@ -162,7 +162,7 @@ h2 {
     display: inline-block;
   }
   
-  .day4weather-info {
+  .day4 {
     border-style: solid;
     border-width: 1px;
     border-radius: var(--border-radius);
@@ -175,7 +175,7 @@ h2 {
     display: inline-block;
   }
 
-  .day5weather-info {
+  .day5 {
     border-style: solid;
     border-width: 1px;
     border-radius: var(--border-radius);

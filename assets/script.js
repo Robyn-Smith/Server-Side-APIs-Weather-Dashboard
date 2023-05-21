@@ -97,10 +97,11 @@ var showCurrentWeather = (weatherData, locationData) => {
     var currentWeather = weatherData.current;
 
     //shows the current weather data
+    document.getElementById('cloudsValue').textContent = `${currentWeather.clouds}%`;
     document.getElementById('tempValue').textContent = `${currentWeather.temp}°`;
     document.getElementById('windValue').textContent = `${currentWeather.wind_speed}MPH`;
     document.getElementById('humidValue').textContent = `${currentWeather.humidity}%`;
-    document.getElementById('cloudsValue').textContent = `${currentWeather.clouds}%`;
+    
 
     var weatherIcon = document.getElementById('weather-icon');
     weatherIcon.innerHTML = '';
@@ -189,10 +190,11 @@ var day1 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekd
 console.log(day1);
 console.log(dailyForecast)
 $('#day1dayValue').text(day1);  
+document.getElementById('day1cloudsValue').textContent = `${dailyForecast.clouds}%`;
 document.getElementById('day1tempValue').textContent = `${dailyForecast.temp.day}°`;
 document.getElementById('day1windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day1humidValue').textContent = `${dailyForecast.humidity}%`;
-document.getElementById('day1cloudsValue').textContent = `${dailyForecast.clouds}%`;
+
 //this array is set to 1 as it is second in the array, the current weather is 0 in the array as it is first.
 //this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
@@ -226,10 +228,11 @@ var day2 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekd
 console.log(day2);
 
 $('#day2dayValue').text(day2);  
+document.getElementById('day2cloudsValue').textContent = `${dailyForecast.clouds}%`;
 document.getElementById('day2tempValue').textContent = `${dailyForecast.temp.day}°`;
 document.getElementById('day2windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day2humidValue').textContent = `${dailyForecast.humidity}%`;
-document.getElementById('day2cloudsValue').textContent = `${dailyForecast.clouds}%`;
+
 console.log(dailyForecast)
 
 var weatherIcon = document.getElementById('day2weather-icon');
@@ -247,10 +250,11 @@ var day3 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekd
 console.log(day3);
 
 $('#day3dayValue').text(day3);  
+document.getElementById('day3cloudsValue').textContent = `${dailyForecast.clouds}%`;
 document.getElementById('day3tempValue').textContent = `${dailyForecast.temp.day}°`;
 document.getElementById('day3windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day3humidValue').textContent = `${dailyForecast.humidity}%`;
-document.getElementById('day3cloudsValue').textContent = `${dailyForecast.clouds}%`;
+
 
 var weatherIcon = document.getElementById('day3weather-icon');
 weatherIcon.innerHTML = "";
@@ -267,10 +271,11 @@ var day4 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekd
 console.log(day4);
 
 $('#day4dayValue').text(day4);  
+document.getElementById('day4cloudsValue').textContent = `${dailyForecast.clouds}%`;
 document.getElementById('day4tempValue').textContent = `${dailyForecast.temp.day}°`;
 document.getElementById('day4windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day4humidValue').textContent = `${dailyForecast.humidity}%`;
-document.getElementById('day4cloudsValue').textContent = `${dailyForecast.clouds}%`;
+
 
 var weatherIcon = document.getElementById('day4weather-icon');
 weatherIcon.innerHTML = "";
@@ -287,10 +292,11 @@ var day5 = new Date(dailyForecast.dt * 1000).toLocaleDateString('en-GB', { weekd
 console.log(day5);
 
 $('#day5dayValue').text(day5);  
+document.getElementById('day5cloudsValue').textContent = `${dailyForecast.clouds}%`;
 document.getElementById('day5tempValue').textContent = `${dailyForecast.temp.day}°`;
 document.getElementById('day5windValue').textContent = `${dailyForecast.wind_speed}MPH`;
 document.getElementById('day5humidValue').textContent = `${dailyForecast.humidity}%`;
-document.getElementById('day5cloudsValue').textContent = `${dailyForecast.clouds}%`;
+
 
 var weatherIcon = document.getElementById('day5weather-icon');
 weatherIcon.innerHTML = "";
@@ -345,131 +351,6 @@ var searchBtn = document.getElementById('search');
 
 searchBtn.addEventListener('click', onSearch);
 
-//need to add local storage to remember recent searches........................................................
-
-//// create an array of searched locations - jsn - plucked from top of this js code
-// var locationHistory = [];
-//     if (localStorage.getItem('location')!= null){
-//       array = JSON.parse(localStorage.getItem('location'));
-//     }
-//     console.log(locationHistory)
-//     // Find the index of the element in the array
-//     var index = array.indexOf(title);
-//     // Check if the element exists (index will be -1 if the element is not found)
-//     if (index !== -1) {
-//       // Remove the element using splice()
-//       array.splice(index, 1);
-//     }  
-//     array.push(title);
-//     //console.log(array);
-
-
-
-// function onSaveLocation(){
-//     var enteredLocation = locationInput.value;
-//  var locationHistory = document.getElementById("location-name").value
-//         if (enteredLocation !== "") {
-//           localStorage.setItem("location-name", enteredLocation);
-//           document.getElementById("history-locations").value = "";
-//       }     
-// }
-   
-//     onSaveLocation();
-
-//work day schedulor local storage:
-//var savedToDo = localStorage.getItem(hour) || '';  
-//localStorage.setItem(hour, toDo);
-
-//quiz local storage:
-//function onSaveScore(event) {
-//     var player = document.getElementById("player").value
-//     if (player !== "") {
-//       localStorage.setItem(player, score);
-//       document.getElementById("player").value = "";
-//   }
-// }
-//localStorage.setItem("player", JSON.stringify(score));
-// var highscores = document.getElementById("highscores")
-// for (var i = 0; i < localStorage.length; i++) {
-
-//     var player = localStorage.key(i);
-//     var score = localStorage.getItem(player);
-    
-//         var list = document.createElement("li");
-//         list.classList.add("list");
-    
-//         list.innerHTML = `<li id="score-item" class = "player">${player}</li><li id="score-item" class = "score">${score}</li>`
-//         highscores.appendChild(list);
-//     }
-
-// function saveHistory(title){
-//     // get localHistory to array
-//     var array = [];
-//     if (localStorage.getItem('saved-titles')!= null){
-//       array = JSON.parse(localStorage.getItem('saved-titles'));
-//     }
-//     // Find the index of the element in the array
-//     var index = array.indexOf(title);
-//     // Check if the element exists (index will be -1 if the element is not found)
-//     if (index !== -1) {
-//       // Remove the element using splice()
-//       array.splice(index, 1);
-//     }  
-//     array.push(title);
-//     //console.log(array);
-//     localStorage.setItem('saved-titles', JSON.stringify(array));
-//     // remove existing entries
-//     // Remove all li elements (children) from the ul
-//     while (historyEl.firstChild) {
-//       historyEl.removeChild(historyEl.firstChild);
-//     }  
-//     // create all childs
-//     for (i=array.length-1; i>=0; i--){
-//       liEl = document.createElement('li');
-//       liEl.textContent = array[i];
-//       liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-1');
-//       //console.log(liEl);
-//       historyEl.appendChild(liEl);
-//     }
-    
-//   }
-
-
-// function loadFromLocalStorage(){
-//     var array = [];
-//     if (localStorage.getItem('saved-titles')!= null){
-//       array = JSON.parse(localStorage.getItem('saved-titles'));
-//     }
-//     while (historyEl.firstChild) {
-//       historyEl.removeChild(historyEl.firstChild);
-//     }  
-//     // create all childs
-//     for (i=array.length-1; i>=0; i--){
-//       liEl = document.createElement('li');
-//       liEl.textContent = array[i];
-//       liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-2');
-//       //console.log(liEl);
-//       historyEl.appendChild(liEl);
-//     }
-  
-//   }
-// loadFromLocalStorage();
-
-
-
-
-
-
-// need to add icons.............................................................................................
-
-// var date = dayjs().format('M/D/YYYY');
-//   // Store response data from our fetch request in variables
-//   var tempF = weather.main.temp;
-//   var windMph = weather.wind.speed;
-//   var humidity = weather.main.humidity;
-//   var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
-//   var iconDescription = weather.weather[0].description || weather[0].main;
-
 function saveRecentLocation(location) {
     //look for the location within the recentLocations array
     const index = recentLocations.indexOf(location);
@@ -483,7 +364,6 @@ function saveRecentLocation(location) {
     }
 
 }
-
 
 //not working.........................................................................................
 function loadRecentLocations() {
