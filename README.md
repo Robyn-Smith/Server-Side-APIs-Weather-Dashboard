@@ -15,3 +15,4 @@ This page is also very eye catching and visually appealing to the user. With the
 This page is very simple to use. The user simply enters their disired location into the search bar and clicks the button this activates the on click event handler and retrives weather information from the api and displays it for the user to see. After this, the user can refresh their page to see their searches in the recently searched section of the aside. The user then can select a recently searched location to view the according weather information again.
 
 Link to deployed GitHub Pages:
+https://robyn-smith.github.io/Server-Side-APIs-Weather-Dashboard/
