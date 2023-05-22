@@ -2,9 +2,8 @@ var starterUrl = 'https://api.openweathermap.org';
 var apiKEY = '3770aa61038a0816864d556d797ecb9f';
 //Global variables, so that they can be regularly called by any function. API key allows access to api.
 
-// create an array of searched locations - jsn
 var recentSearch = [];
-//could change to var?
+//this is the array that searched locations enter
 
 var onSearch = () => {
     var enteredLocation = locationInput.value;//retrive location entered by the user
@@ -43,7 +42,6 @@ var locationSearch = (search) => {
             console.log(data);
 
             //this chooses the first location from the results, in the array
-            // var location = data[0];
             var lat = data[0].lat;
             var lon = data[0].lon;
 
@@ -77,7 +75,7 @@ var locationSearch = (search) => {
         });
 }
 
-var showCurrentWeather = (weatherData, locationData) => {
+var showCurrentWeather = (weatherData) => {
     var currentWeather = weatherData.current;
 
     var weatherIcon = document.getElementById('icon');
@@ -85,12 +83,13 @@ var showCurrentWeather = (weatherData, locationData) => {
     var img = document.createElement("div");
     img.innerHTML = ` <img src="https://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png" />`
     weatherIcon.appendChild(img);
-    //shows the current weather data
+    //creates html image element and sets this as the icon retrieved from the api for the current day
+    
     document.getElementById('cloudsValue').textContent = `${currentWeather.clouds}%`;
     document.getElementById('windValue').textContent = `${currentWeather.wind_speed}MPH`;
     document.getElementById('humidValue').textContent = `${currentWeather.humidity}%`;
     document.getElementById('tempValue').textContent = `${currentWeather.temp}°`;
-    }
+    }//shows the current weather data including cloud levels, wind speed, humidity and temperature
 
 var showNext5Days = (weatherData) => {
     //collects the daily forecast
@@ -194,27 +193,24 @@ document.getElementById('day5tempValue').textContent = `${dailyForecast.temp.day
 }//this array is set to 5 as it is sixth in the array.
 //this function adds the day of the week and weather data retrieved from thr api as text and is added to html elements
 
-//display the weather for the cached location- jsn
 var displayWeather = (weatherData) => {
     document.getElementById('location-name').textContent = `${weatherData.name}, ${weatherData.country}`;
-    // weatherReport(weatherData.lat,weatherData.lon);
-}
+} //this shows the location name above the current weather
 
-//search text and search button - jsn
 var locationInput = document.getElementById('location');
 var searchBtn = document.getElementById('search');
+//this is the search text box and search button
 
 searchBtn.addEventListener('click', onSearch);
+//adds click event to search button
 
 function saveRecentSearch(location) {
-    //look for the location within the recentSearch array
-    var index = recentSearch.indexOf(location);
+    var index = recentSearch.indexOf(location);     //this finds the location in the recentSearch array
 
-    //if it's not already in the array, add it
     if (index === -1) {
-        recentSearch.push(location);
+        recentSearch.push(location);                //this checks that the location isnt in the array then adds it if not
 
-        //add it to the list of recent locations
+        //add it to the list of recent locations-jsn
         localStorage.setItem('locationInput', JSON.stringify(recentSearch));
     }
 
