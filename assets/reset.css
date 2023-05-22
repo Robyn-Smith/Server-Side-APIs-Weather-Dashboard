@@ -1,0 +1,185 @@
+/* reset style sheet acts as default for style css */
+:root {
+    --white: #ffffff;
+    --dark-blue: #10464da2;
+    --turquoise: #8ac9b4c8;
+    --border-radius: 5px;
+  }
+  /*variables have been declared in the root to make it easier to change the 3 main colours of the webpage.
+  The border radius has also been declared as a variable to make it easier to repeat the same style throughout 
+  the page.*/
+  
+  body {
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background-color: var(--turquoise);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /*The body contains styling for the whole webpage including font size throughout, display attributes and background 
+  attributes. Flex direction has been set to columns so that the website is responsive to changes in screen size and 
+  appears as coloumns. Display: flex and justify-content: flex-start also support the page in responding to changes in
+  screen size. Background colour has also been added despite having a background image incase of slow rendering or if 
+  the image is unable to load. Background position, repeat and size centres the background image, stops it from 
+  repeating and makes sure that the size of the picture covers the entire screen.*/
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--white);
+  }
+  /* h1 is bold and has been given a larger font size compared to other headings on the page so that it is clear, 
+  visable and stands out. Margin bottom gives the heading space under the text. Font family is included to ensure 
+  that a similar font will be visable if the font chosen is not available for different browers*/
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    text-decoration: underline;
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+  }
+  /* h2 refers to the "Next 5 Days Weather Report" heading. Text decoration has been added to the heading 
+  so that it stands out being underlined. Font family is included to ensure that a similar font will be visable 
+  if the font chosen is not available for different browers*/
+  
+  header {
+    padding: 20px;
+    text-align: center;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+  /*header styling, element at top of the screen containing h1*/
+
+  
+  main {
+    display: flex;
+  }
+  /*this refers to the style of the main element. Display flex allows aside, article and nested sections to be adjacent 
+  to each other and allowed them to be responsive to screen size changes.*/
+  
+  aside {
+    background-color: #55a8a8dc;
+    text-align: center;
+    width: fit-content;
+    padding-top: 10px;
+  }
+  /* styling of aside containing search bar and search history */
+
+  .container {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #ffffff42;
+  } 
+  /* styling of current day */
+  
+  /* styling of the 5 day boxes: */
+  .day1 {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+
+  .day2 {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+
+  .day3 {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+  
+  .day4 {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+
+  .day5 {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    flex: 0 0 100%;
+    box-shadow: 10px 10px 5px #1a585bb0;
+    margin: 20px;
+    height: fit-content;
+    background-color: var(--white);
+    display: inline-block;
+  }
+
+.placeName {
+  font-size: 2em;  
+}
+/* indiviaually styled larger to stand out */
+
+  button {
+    color: var(--dark-blue);
+    width: 90%;
+    text-decoration: none;
+    text-align: center;
+  }
+  button:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+  }
+/* search button styling */
+
+.history {
+  padding-top: 20px;
+  font-size: 20px;
+}
+/* search history styling */
+
+.place:hover {
+  color: var(--white);
+}
+/* search history location hover styling */
+
+  @media screen and (max-width: 768px) {
+    .weather-info{display: inline-block;}
+  }

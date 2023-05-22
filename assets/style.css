@@ -46,7 +46,7 @@
     font-family:'Courier New', Courier, monospace;
     text-align: center;
   }
-  /* h2 refers to the 'About me' heading in the aside element. Text decoration has been added to the heading 
+  /* h2 refers to the "Next 5 Days Weather Report" heading. Text decoration has been added to the heading 
   so that it stands out being underlined. Font family is included to ensure that a similar font will be visable 
   if the font chosen is not available for different browers*/
   
@@ -58,8 +58,7 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
   }
-  /*header refers to not only the style of the header element at the top of the page but also the headers 
-  above each project.*/
+  /*header styling, element at top of the screen containing h1*/
 
   
   main {
@@ -74,7 +73,8 @@
     width: fit-content;
     padding-top: 10px;
   }
-  
+  /* styling of aside containing search bar and search history */
+
   .container {
     flex: 1;
     padding: 50px;
@@ -82,8 +82,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: #ffffff42;
-  }
+  } 
+  /* styling of current day */
   
+  /* styling of the 5 day boxes: */
   .day1 {
     border-style: solid;
     border-width: 1px;
@@ -149,9 +151,10 @@
     display: inline-block;
   }
 
-.weather-location {
+.placeName {
   font-size: 2em;  
 }
+/* indiviaually styled larger to stand out */
 
   button {
     color: var(--dark-blue);
@@ -163,20 +166,19 @@
     background-color: var(--dark-blue);
     color: var(--white);
   }
+/* search button styling */
 
 .history {
   padding-top: 20px;
   font-size: 20px;
 }
+/* search history styling */
 
 .place:hover {
   color: var(--white);
 }
+/* search history location hover styling */
 
   @media screen and (max-width: 768px) {
-    /* main,
-{
-      flex-direction: column;
-    } */
     .weather-info{display: inline-block;}
   }
