@@ -210,22 +210,19 @@ function saveRecentSearch(location) {
     if (index === -1) {
         recentSearch.push(location);                //this checks that the location isnt in the array then adds it if not
 
-        //add it to the list of recent locations-jsn
         localStorage.setItem('locationInput', JSON.stringify(recentSearch));
     }
-
-}
+}//this adds the recently searched location to the array
 
 function addSearchHistory() {
-    //load everything from local storage
     var storedLocations = JSON.parse(localStorage.getItem('locationInput'));
-    ///issue with this line????
+    //parse turns the location back into a value
 
-    //load the recent locations into the recentLocation array
     if (storedLocations!== null) {
         recentSearch.push(...storedLocations);
-
-        //loop through the recent locations and add them to the list
+        //if there is something in the local storage push to array
+        
+        //loop through the recent locations and add them to the list-jsn
         for (let i=0; i < recentSearch.length; i++) {
             var input = document.createElement('div');
             input.classList.add('place')
@@ -235,11 +232,11 @@ function addSearchHistory() {
             document.getElementById('search_history').appendChild(input);
         }
     }
-}
+}//this function loads everything from local storage -jsn
 function onClickRecentSearch(event) {
     console.log('clicked');
 
-    //get the location from the clicked element
+    //get the location from the clicked element-jsn
     var location = event.target.textContent;
     locationSearch(location);
 }
